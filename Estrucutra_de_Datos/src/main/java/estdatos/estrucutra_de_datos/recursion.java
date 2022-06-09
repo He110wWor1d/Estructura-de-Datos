@@ -10,8 +10,6 @@ package estdatos.estrucutra_de_datos;
  */
 public class recursion {
     
-    static int arr [] = {12,34,64,2,3};
-    
     /*
     * El metodo recursivo debe tener:
     * 1. mínimo una condición de parada/base, que nos permite devolver un valor
@@ -42,4 +40,19 @@ public class recursion {
         }
         return max;
     }
+    
+    public static int sacaPosicionMayor(int[] arr, int indice, int numeroMax, int posicionAlta){
+        
+        if (indice !=arr.length){
+            
+            if (numeroMax<arr[indice]){
+                posicionAlta = sacaPosicionMayor(arr,(indice)+1, arr[indice], indice);
+            }
+            else{
+                posicionAlta = sacaPosicionMayor(arr, (indice)+1, numeroMax, posicionAlta);
+            }
+        }
+        return posicionAlta;
+    }
+    
 }

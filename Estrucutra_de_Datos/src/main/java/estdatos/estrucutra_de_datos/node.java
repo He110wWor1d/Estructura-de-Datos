@@ -6,35 +6,35 @@ package estdatos.estrucutra_de_datos;
 
 /**
  *
- * @author luisf
+ * Esta <T> es de Java generics. Y la T luego cuando yo instancio un objecto en la clase, me permite crear un objeto nodo, 
+ * de cualquier tipo, puede ser int, puede ser String y todo solo con cambiar la T por el tipo de dato
  */
-public class node {
+
+public class node<T> {
     
     //Atributos del nodo
-    private int value; // Elemento guardado
-    private node next; // Elemento de referencia
-    //la línea de código anterior es la referencia y se apunta hacia el nodo siguiente
-
-    public node(int value, node next) {
-        this.value = value;
-        this.next = null; // es nulo porque no sabemos en este punto si ya hay un next
-    }
-    // este es el método constructor y sirve para instanciar los objectos
+    private T value; // Elemento guardado
+    private node<T> next; // Elemento de referencia. La referencia y se apunta hacia el nodo siguiente.
     
-    public void setValue(int value) {
+    public node (T value){
         this.value = value;
     }
 
-    public void setNext(node next) {
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public void setNext(node<T> next) {
         this.next = next;
     }
-    // Los métodos setters sirven para cambiar los datos luego de haberlos instanciados
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public node getNext() {
+    public node<T> getNext() {
         return next;
     }
+
+    
 }
