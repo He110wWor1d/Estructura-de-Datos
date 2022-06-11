@@ -16,4 +16,15 @@ public class queue<T> {
             tail = newNode;
         }
     }
+    public node<T> dequeue (){
+        if(head == null){
+            System.out.println("La cola se encuentra vacía.");
+            return null;
+        }
+        else{
+            node<T> firstInQueue = head;
+            head=head.getNext();
+            return firstInQueue;
+        }
+    }
 }

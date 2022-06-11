@@ -34,7 +34,14 @@ public class Estrucutra_de_Datos {
         
         ----------------Pilas----------------
         */
+        // ----------------Cola----------------
         
-        
+        queue<Integer> Cola = new queue<Integer>(); //El nombre del tipo no puede ser abreviado como int, debe ser "Integer" en ese caso.
+        Cola.enqueue(1);
+        Cola.enqueue(2);
+        Cola.enqueue(4);
+        System.out.println(Cola.dequeue());
+        System.out.println(Cola.dequeue().getValue());
     }
+    // ----------------Cola----------------
 }
