@@ -5,6 +5,8 @@
 
 package estdatos.estrucutra_de_datos;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Luis Chavarria
@@ -47,7 +49,7 @@ public class lista {
     public void imprimirlista(){
         node<persona> aux = head;
         while (aux != null){
-            System.out.println(aux.getValue().getId());
+            System.out.println(aux.getValue().getId()+", "+aux.getValue().getNombre());
             aux = aux.getNext(); // este es lo que evita que se encicle el while
         }
     
@@ -62,8 +64,58 @@ public class lista {
             
             aux = aux.getNext();  //Esto es lo que mueve el ciclo
             
-        }    
+        }
         return false;
+    }
+    
+    public void elimina(int id){
+        node<persona> aux = head;
+        while(aux != null){
+            if (aux.getNext().getValue().getId() == id){ //Get value es para sacar el objeto de tipo persona de la caja que es el nodo. Y luego el get ID es para sacarle el ID a este objeto persona
+                aux.setNext(aux.getNext().getNext());    // La cola ahora va ser la del aux y solamente se salta la referencia del # que se mandó a eliminar. Por eso el next del aux es el next del next.
+                
+                System.out.println("El objeto con identificación "+id+" ha sido eliminado de la fila.");
+                break; // Ponemos un break en esta condición para que el ciclo acabe si la condición se cumple.
+            }
+            
+            aux = aux.getNext();  //Esto es lo que mueve el ciclo
+            
+        }
+        
+    }
+    
+    public void modificar(int id){
+        node<persona> aux = head;
+        String namemodif;
+        Scanner entrada = new Scanner(System.in);
+        while(aux != null){
+            if (aux.getValue().getId() == id){ //Get value es para sacar el objeto de tipo persona de la caja que es el nodo. Y luego el get ID es para sacarle el ID a este objeto persona
+                System.out.println("Se cambiará el nombre a la persona con ID "+aux.getValue().getId()+"\nDigite el nuevo nombre: ");
+                namemodif = entrada.next();
+                aux.getValue().setNombre(namemodif);
+                
+                break; // Ponemos un break en esta condición para que el ciclo acabe si la condición se cumple.
+            }
+            
+            aux = aux.getNext();  //Esto es lo que mueve el ciclo
+            
+        }
+    }
+    
+    public persona extraer(int id){
+        persona p = null;
+        node<persona> aux = head;
+        while(aux != null){
+            if (aux.getNext().getValue().getId() == id){
+                aux.setNext(aux.getNext().getNext());
+                
+                return aux.getValue();
+            }
+            
+            aux = aux.getNext();  //Esto es lo que mueve el ciclo
+            
+        }
+        return p;
     }
 
 }

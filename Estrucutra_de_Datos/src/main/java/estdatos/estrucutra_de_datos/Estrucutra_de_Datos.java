@@ -52,11 +52,13 @@ public class Estrucutra_de_Datos {
         Lista.insertar(new persona(12, "Andres"));
         Lista.insertar(new persona(15, "Lorena"));
         
+        //Lista.elimina(30);
+        //Lista.modificar(25);
+        Lista.extraer(15);
+        
         Lista.imprimirlista(); 
         
-        System.out.println(Lista.existe(95));
+        //System.out.println(Lista.existe(95));
     }
         
-    
-    
 }
