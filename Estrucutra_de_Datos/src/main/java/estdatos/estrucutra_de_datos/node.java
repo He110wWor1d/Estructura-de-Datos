@@ -13,7 +13,7 @@ package estdatos.estrucutra_de_datos;
 public class node<T> {
     
     //Atributos del nodo
-    private T value; // Elemento guardado
+    private T value; // Elemento guardado, tenga en cuenta que el elemento guardado puede ser de tipo int, String o persona, que es un tipo abstracto
     private node<T> next; // Elemento de referencia. La referencia y se apunta hacia el nodo siguiente.
     
     public node (T value){
@@ -36,5 +36,4 @@ public class node<T> {
         return next;
     }
 
-    
 }

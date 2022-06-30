@@ -20,8 +20,8 @@ public class Estrucutra_de_Datos {
         ----------------Recursividad----------------
         */
         
-        /*
-        ----------------Pilas----------------
+        
+        /*----------------Pilas----------------
         stack<String> Pila = new stack<String>(); //El nombre del tipo no puede ser abreviado como int, debe ser "Integer" en ese caso.
         Pila.push("Sebastian");
         Pila.push("Juan");
@@ -32,16 +32,31 @@ public class Estrucutra_de_Datos {
         System.out.println(Pila.pop());
         System.out.println(Pila.pop());
         
-        ----------------Pilas----------------
-        */
-        // ----------------Cola----------------
+        //----------------Pilas----------------*/
+        
+        /* ----------------Cola----------------
         
         queue<Integer> Cola = new queue<Integer>(); //El nombre del tipo no puede ser abreviado como int, debe ser "Integer" en ese caso.
         Cola.enqueue(1);
         Cola.enqueue(2);
         Cola.enqueue(4);
-        System.out.println(Cola.dequeue());
-        System.out.println(Cola.dequeue().getValue());
+        System.out.println(Cola.dequeue());            //Acá imprime el nodo como tal
+        System.out.println(Cola.dequeue().getValue()); //Acá imprime el contenido del nodo mediante el método getValue
+        // ----------------Cola----------------*/
+        
+        // ----------------Lista----------------//
+        lista Lista = new lista (); //instanciamos el objeto Lista y lo creamos de tipo persona
+        Lista.insertar(new persona(25, "Luis")); // Acá dentro del objeto lista, el dato que llevará dentro es de tipo persona y por eso le damos el ID y el nombre.
+        Lista.insertar(new persona(54, "Rodrigo"));
+        Lista.insertar(new persona(30, "Carlos"));
+        Lista.insertar(new persona(12, "Andres"));
+        Lista.insertar(new persona(15, "Lorena"));
+        
+        Lista.imprimirlista(); 
+        
+        System.out.println(Lista.existe(95));
     }
-    // ----------------Cola----------------
+        
+    
+    
 }

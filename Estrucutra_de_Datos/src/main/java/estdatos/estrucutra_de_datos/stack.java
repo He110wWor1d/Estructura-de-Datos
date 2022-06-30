@@ -6,7 +6,7 @@ package estdatos.estrucutra_de_datos;
 
 /**
  *
- * @author luisf
+ * @author Luis Chavarria
  */
 public class stack<T> {
     //Atributos
