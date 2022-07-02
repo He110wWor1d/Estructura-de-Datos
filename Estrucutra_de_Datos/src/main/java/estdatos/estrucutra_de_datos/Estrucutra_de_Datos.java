@@ -34,6 +34,7 @@ public class Estrucutra_de_Datos {
         
         //----------------Pilas----------------*/
         
+        
         /* ----------------Cola----------------
         
         queue<Integer> Cola = new queue<Integer>(); //El nombre del tipo no puede ser abreviado como int, debe ser "Integer" en ese caso.
@@ -44,8 +45,9 @@ public class Estrucutra_de_Datos {
         System.out.println(Cola.dequeue().getValue()); //Acá imprime el contenido del nodo mediante el método getValue
         // ----------------Cola----------------*/
         
+        
         // ----------------Lista----------------//
-        lista Lista = new lista (); //instanciamos el objeto Lista y lo creamos de tipo persona
+        lista_Circular_Simple Lista = new lista_Circular_Simple (); //instanciamos el objeto Lista y lo creamos de tipo persona
         Lista.insertar(new persona(25, "Luis")); // Acá dentro del objeto lista, el dato que llevará dentro es de tipo persona y por eso le damos el ID y el nombre.
         Lista.insertar(new persona(54, "Rodrigo"));
         Lista.insertar(new persona(30, "Carlos"));
@@ -53,12 +55,18 @@ public class Estrucutra_de_Datos {
         Lista.insertar(new persona(15, "Lorena"));
         
         //Lista.elimina(30);
-        //Lista.modificar(25);
-        Lista.extraer(15);
+        //Lista.modificar(26);
+        System.out.println(Lista.extraer(15));
+        Lista.imprimirlista();
+        //System.out.println(Lista.existe(12));
         
-        Lista.imprimirlista(); 
         
-        //System.out.println(Lista.existe(95));
+        // ----------------Lista----------------//
+        
+        // ----------------Lista Circular Simple----------------//
+        
+        
+        // ----------------Lista Circular Simple----------------//
     }
         
 }

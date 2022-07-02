@@ -104,7 +104,7 @@ public class lista {
     
     public persona extraer(int id){
         persona p = null;
-        node<persona> aux = head;
+        node<persona> aux = head; // aquí falta un if que revise que pasa si el ID a extraer es el top. Para ver esta solución referirse al metodo extraer de lista circular simple
         while(aux != null){
             if (aux.getNext().getValue().getId() == id){
                 aux.setNext(aux.getNext().getNext());
