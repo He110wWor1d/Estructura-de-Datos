@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Luis Chavarria
  */
-public class lista_Circular_Simple {
+public class lista_Doble_Circular {
     private node<persona> head;
     private node<persona> tail;
     
@@ -21,32 +21,42 @@ public class lista_Circular_Simple {
             head = new node<persona>(value);
             tail = head;
             tail.setNext(head);
+            head.setNext(tail);
+            tail.setBack(head);
+            head.setBack(tail);
         }
         else if( head.getValue().getId() > value.getId() ){ // If que asume que ya hay info en la lista
             node<persona> aux = new node<persona>(value);                 
-            aux.setNext(head); 
+            aux.setNext(head);
             head = aux;
             tail.setNext(head);
-        }       
+            head.setBack(tail);
+        }
         else if( value.getId() >= tail.getValue().getId() ){ // If que asume que ya hay nodos en la lista y comparamos el valor del nuevo nodo
             node<persona> aux = new node<persona> (value); // Creamos nodo aux
+            aux.setBack(tail);
             tail.setNext(aux);
             tail = aux;
             tail.setNext(head);
+            head.setBack(tail);
         }
         else{
             node<persona> aux = tail;
-            while (aux.getNext().getValue().getId() < value.getId() ){
+            while (aux.getNext().getValue().getId() < value.getId() ){ //mientras el ID de head sea menor al ID indicado
                 aux = aux.getNext();
-            } 
-            // Una vez que el get.next del aux es nulo o el ID del get.next del aux es mayor al nuevo ID, el ciclo se interrumpe y ejecuta lo siguiente:
+            }
+            // Una vez que el getNext del aux es nulo o el ID del getNext del aux es mayor al nuevo ID, el ciclo se interrumpe y ejecuta lo siguiente:
             
-            node<persona> Temp =  new node<persona>(value);
-            Temp.setNext(aux.getNext());
-            aux.setNext(Temp);
+            node<persona> temp =  new node<persona>(value);
+            temp.setNext(aux.getNext());
+            aux.setNext(temp);
+            
+            aux.getNext().setBack(temp);
+            temp.setBack(aux);
+            
+            // pensar en qué falta acá
+            
         }
-     // El tail.setNext(Head) se puede poner en esta linea y se borraría de todas las demás if
-     
         
     }
     
@@ -63,7 +73,7 @@ public class lista_Circular_Simple {
                 aux = aux.getNext(); // este es lo que evita que se encicle el while
             }while (aux != head); // Con do while, el tema del ciclo se resuelve fácil
         }
-        
+
     }
     
     public boolean existe(int id){
@@ -84,7 +94,7 @@ public class lista_Circular_Simple {
         }
         
     }
-        
+    
     public void modificar(int id){
         Scanner entrada = new Scanner(System.in);
         boolean existe = false;
@@ -127,8 +137,7 @@ public class lista_Circular_Simple {
         
     }
     
-    //elimina
-    public void elimina(int id){
+    public void elimina(int id){ 
         boolean existe = false;
         
         if(head == null){
@@ -137,20 +146,24 @@ public class lista_Circular_Simple {
         }
         else if(id == head.getValue().getId()){
             head = head.getNext();
-            tail.setNext(head);  // No estoy seguro de si esto es necesario***
+            tail.setNext(head);
+            head.setBack(tail);
             existe = true;
         }
         else{
             node<persona> aux = head;
-            node<persona> aux2 = aux.getNext(); //con este nodo tomamos el que va delante del aux, sirve para detener el while.
+            node<persona> aux2 = aux.getNext();
             
-            while(aux.getNext() != tail){ // Este while para cuando el el que va delante del aux es el tail.
+            while(aux.getNext() != tail){
                 if (aux2.getValue().getId() == id){
-                    aux.setNext(aux.getNext().getNext()); // a    c
+                    aux.setNext(aux2.getNext());
+                    //aux.setNext(aux.getNext().getNext());
+                    aux2 = aux.getNext();
+                    aux2.setBack(aux);
+                    
                     existe = true;
-                    break; // Ponemos un break en esta condición para que el ciclo acabe si la condición se cumple.
+                    break;
                 }
-            
                 aux = aux.getNext();  //Esto es lo que mueve el ciclo
                 aux2 = aux.getNext();
 
@@ -159,6 +172,7 @@ public class lista_Circular_Simple {
             if (id == tail.getValue().getId()){
                 tail = aux;
                 tail.setNext(head);
+                head.setBack(tail);
                 existe = true;
             }
             
@@ -172,21 +186,24 @@ public class lista_Circular_Simple {
     
     public persona extraer(int id){
         persona p = null;
-        node<persona> aux;
         
         if(id == head.getValue().getId()){
-            aux = head;
+            //aux = head;
             head = head.getNext();
             tail.setNext(head);
-            return aux.getValue();
+            head.setBack(tail);
+            return head.getValue();
         }
         else{
-            aux = head;
-            node<persona> aux2 = aux.getNext(); //con este nodo tomamos el que va delante del aux, sirve para detener el while.
+            node<persona> aux = head;
+            node<persona> aux2 = aux.getNext();
             
-            while(aux.getNext() != tail){ // Este while para cuando el el que va delante del aux es el tail.
+            while(aux.getNext() != tail){ 
                 if (aux2.getValue().getId() == id){
-                    aux.setNext(aux.getNext().getNext());
+                    aux.setNext(aux2.getNext());
+                    //aux.setNext(aux.getNext().getNext());
+                    aux2 = aux.getNext();
+                    aux2.setBack(aux);
                     
                     return aux2.getValue();
                 }
@@ -199,6 +216,7 @@ public class lista_Circular_Simple {
             if (id == tail.getValue().getId()){
                 tail = aux;
                 tail.setNext(head);
+                head.setBack(tail);
                 return aux2.getValue();
             }
             

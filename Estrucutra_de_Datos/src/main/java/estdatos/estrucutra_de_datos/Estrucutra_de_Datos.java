@@ -47,26 +47,58 @@ public class Estrucutra_de_Datos {
         
         
         // ----------------Lista----------------//
-        lista_Circular_Simple Lista = new lista_Circular_Simple (); //instanciamos el objeto Lista y lo creamos de tipo persona
+        /*
+        lista Lista = new lista (); //instanciamos el objeto Lista y lo creamos de tipo persona
         Lista.insertar(new persona(25, "Luis")); // Acá dentro del objeto lista, el dato que llevará dentro es de tipo persona y por eso le damos el ID y el nombre.
         Lista.insertar(new persona(54, "Rodrigo"));
         Lista.insertar(new persona(30, "Carlos"));
         Lista.insertar(new persona(12, "Andres"));
         Lista.insertar(new persona(15, "Lorena"));
-        
+        */
         //Lista.elimina(30);
-        //Lista.modificar(26);
-        System.out.println(Lista.extraer(15));
-        Lista.imprimirlista();
+        //Lista.modificar(12);
+        //System.out.println(Lista.extraer(15));
+        //Lista.imprimirlista();
         //System.out.println(Lista.existe(12));
-        
         
         // ----------------Lista----------------//
         
+        // ----------------Lista Circular Simple----------------/
+        /*
+        lista_Circular_Simple Lista2 = new lista_Circular_Simple (); //instanciamos el objeto Lista y lo creamos de tipo persona
+        Lista2.insertar(new persona(25, "Luis")); // Acá dentro del objeto lista, el dato que llevará dentro es de tipo persona y por eso le damos el ID y el nombre.
+        Lista2.insertar(new persona(54, "Rodrigo"));
+        Lista2.insertar(new persona(30, "Carlos"));
+        Lista2.insertar(new persona(12, "Andres"));
+        Lista2.insertar(new persona(15, "Lorena"));
+        
+        //Lista.elimina(30);
+        //Lista.modificar(12);
+        //System.out.println(Lista.extraer(15));
+        Lista2.imprimirlista();
+        //System.out.println(Lista.existe(12));
+        
+        */
         // ----------------Lista Circular Simple----------------//
         
+        // ----------------Lista Doble Circular ----------------//
         
-        // ----------------Lista Circular Simple----------------//
+        lista_Doble_Circular Lista3 = new lista_Doble_Circular ();
+        
+        Lista3.insertar(new persona(25, "Luis")); // Acá dentro del objeto lista, el dato que llevará dentro es de tipo persona y por eso le damos el ID y el nombre.
+        Lista3.insertar(new persona(4, "Rodrigo"));
+        Lista3.insertar(new persona(30, "Carlos"));
+        Lista3.insertar(new persona(12, "Andres"));
+        Lista3.insertar(new persona(15, "Lorena"));
+        
+        
+        //Lista3.elimina(12);
+        //Lista3.modificar(12);
+        //System.out.println(Lista3.extraer(4));
+        //Lista3.imprimirlista();
+        //System.out.println(Lista3.existe(11));
+        
+        // ----------------Lista Doble Circular ----------------//
     }
         
 }

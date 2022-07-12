@@ -15,6 +15,7 @@ public class node<T> {
     //Atributos del nodo
     private T value; // Elemento guardado, tenga en cuenta que el elemento guardado puede ser de tipo int, String o persona, que es un tipo abstracto
     private node<T> next; // Elemento de referencia. La referencia y se apunta hacia el nodo siguiente.
+    private node<T> back;
     
     public node (T value){
         this.value = value;
@@ -34,6 +35,14 @@ public class node<T> {
 
     public node<T> getNext() {
         return next;
+    }
+
+    public node<T> getBack() {
+        return back;
+    }
+
+    public void setBack(node<T> back) {
+        this.back = back;
     }
 
 }

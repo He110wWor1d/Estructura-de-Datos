@@ -34,7 +34,7 @@ public class persona {
         this.nombre = nombre;
     }
     
-    public persona(){
+    public persona(){ //Creo que este método vacío es para poder hacer los nodos de tipo persona
         
     }
         
