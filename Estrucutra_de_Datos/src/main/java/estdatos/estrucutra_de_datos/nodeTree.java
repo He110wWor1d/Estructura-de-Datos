@@ -9,13 +9,13 @@ package estdatos.estrucutra_de_datos;
  *
  * @author Luis Chavarria
  */
-public class persona {
+public class nodeTree { //BST Binary Search Tree
     private int id;
-    private String nombre;
-
-    public persona(int id, String nombre) {
+    private nodeTree izq; // Hijo de la izquierda
+    private nodeTree der; // Hijo de la derecha
+    
+    public nodeTree(int id){
         this.id = id;
-        this.nombre = nombre;
     }
 
     public int getId() {
@@ -26,16 +26,20 @@ public class persona {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public nodeTree getIzq() {
+        return izq;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIzq(nodeTree izq) {
+        this.izq = izq;
     }
-    
-    public persona(){ //Creo que este método vacío es para poder hacer los nodos de tipo persona
-        
+
+    public nodeTree getDer() {
+        return der;
     }
-        
+
+    public void setDer(nodeTree der) {
+        this.der = der;
+    }
+
 }

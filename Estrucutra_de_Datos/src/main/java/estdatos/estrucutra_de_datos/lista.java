@@ -37,7 +37,7 @@ public class lista {
             node<persona> aux = head; // aquí copiamos el valor de head a aux
             while (aux.getNext() != null && aux.getNext().getValue().getId() < value.getId() ){ // acá nos vamos a ir moviendo por los nodos hasta encontrar uno que sea mayor al ID del nodo nuevo que queremos insertar
                 aux = aux.getNext();  // este es lo que evita que se encicle el while, porque va cambiando el valor del aux, al next del aux actual.
-            } 
+            }
             // Una vez que el get.next del aux es nulo o el ID del get.next del aux es mayor al nuevo ID, el ciclo se interrumpe y ejecuta lo siguiente:
             
             node<persona> Temp =  new node<persona>(value); // creo un nodo temporal y a este nodo temporal se le va a asignar el valor nuevo a insertar

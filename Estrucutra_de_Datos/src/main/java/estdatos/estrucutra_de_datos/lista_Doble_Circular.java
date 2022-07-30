@@ -54,7 +54,6 @@ public class lista_Doble_Circular {
             aux.getNext().setBack(temp);
             temp.setBack(aux);
             
-            // pensar en qué falta acá
             
         }
         
@@ -192,6 +191,7 @@ public class lista_Doble_Circular {
             head = head.getNext();
             tail.setNext(head);
             head.setBack(tail);
+            
             return head.getValue();
         }
         else{
