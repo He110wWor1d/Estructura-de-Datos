@@ -6,7 +6,7 @@ public class queue<T> {
     private node<T> tail; // Último lugar
     
     public void enqueue (T value){
-        node<T> newNode = new node<T> (value);
+        node<T> newNode = new node<> (value);
         if(head == null){
             head = newNode;
             tail = newNode;
@@ -16,6 +16,7 @@ public class queue<T> {
             tail = newNode;
         }
     }
+    
     public node<T> dequeue (){
         if(head == null){
             System.out.println("La cola se encuentra vacía.");
@@ -23,7 +24,7 @@ public class queue<T> {
         }
         else{
             node<T> firstInQueue = head;
-            head=head.getNext();
+            head = head.getNext();
             return firstInQueue;
         }
     }
